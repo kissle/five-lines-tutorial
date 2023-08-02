@@ -80,7 +80,7 @@ function moveVertical(dy: number) {
   }
 }
 
-function update() {
+function handleInputs() {
   while (inputs.length > 0) {
     let current = inputs.pop();
     if (current === Input.LEFT)
@@ -92,7 +92,9 @@ function update() {
     else if (current === Input.DOWN)
       moveVertical(1);
   }
+}
 
+function updateMap() {
   for (let y = map.length - 1; y >= 0; y--) {
     for (let x = 0; x < map[y].length; x++) {
       if ((map[y][x] === Tile.STONE || map[y][x] === Tile.FALLING_STONE)
@@ -111,6 +113,12 @@ function update() {
     }
   }
 }
+
+function update() {
+  handleInputs();
+  updateMap();
+}
+
 function createGraphics(): CanvasRenderingContext2D {
   let canvas = document.getElementById("GameCanvas") as HTMLCanvasElement;
   let g = canvas.getContext("2d");

@@ -30,7 +30,7 @@ class Right implements Input {
   isDown() { return false };
 
   handle() {
-    moveHorizontal(-1);
+    moveHorizontal(1);
   }
 }
 
@@ -41,7 +41,7 @@ class Left implements Input {
   isDown() { return false };
 
   handle() {
-    moveHorizontal(1);
+    moveHorizontal(-1);
   }
 }
 
@@ -227,5 +227,5 @@ window.addEventListener("keydown", e => {
   if (e.key === LEFT_KEY || e.key === "a") inputs.push(new Left());
   else if (e.key === UP_KEY || e.key === "w") inputs.push(new Up());
   else if (e.key === RIGHT_KEY || e.key === "d") inputs.push(new Right());
-  else if (e.key === DOWN_KEY || e.key === "s") inputs.push(new Left());
+  else if (e.key === DOWN_KEY || e.key === "s") inputs.push(new Down());
 });

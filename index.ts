@@ -131,12 +131,13 @@ function moveVertical(dy: number) {
 
 function handleInputs() {
   while (inputs.length > 0) {
-    let current = inputs.pop();
+    let input = inputs.pop();
     handleInput(current);
+    input.handle();
   }
 }
 
-function handleInput(input: Input) {
+function handleInput2(input: Input) {
   input.handle();
 }
 

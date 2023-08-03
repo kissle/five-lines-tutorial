@@ -132,13 +132,8 @@ function moveVertical(dy: number) {
 function handleInputs() {
   while (inputs.length > 0) {
     let input = inputs.pop();
-    handleInput(current);
     input.handle();
   }
-}
-
-function handleInput2(input: Input) {
-  input.handle();
 }
 
 function updateMap() {

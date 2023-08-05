@@ -116,13 +116,11 @@ interface FallingState {
 
 class Falling implements FallingState {
   isFalling(): boolean { return true; }
-  isResting(): boolean { return false; }
 
   moveHorizontal(tile: Tile, dx: number) {  }
 }
 class Resting implements FallingState {
   isFalling(): boolean { return false; }
-  isResting(): boolean { return true; }
 
   moveHorizontal(tile: Tile, dx: number) {
     if (map[playery][playerx + dx + dx].isAir()

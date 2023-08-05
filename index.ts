@@ -190,10 +190,8 @@ class Stone implements Tile {
   }
 
   isAir(): boolean { return false };
-  isFallingStone(): boolean { return this.fallStrategy.getFalling().isFalling() };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
-  isFalling(): boolean { return this.fallStrategy.getFalling().isFalling() };
 
   draw(g: CanvasRenderingContext2D, x: number, y: number) {
     g.fillStyle = "#0000cc";
@@ -216,10 +214,8 @@ class Box implements Tile {
   }
 
   isAir(): boolean { return false };
-  isFallingBox(): boolean { return this.fallStrategy.getFalling().isFalling() };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
-  isFalling(): boolean { return this.fallStrategy.getFalling().isFalling() };
   
   draw(g: CanvasRenderingContext2D, x: number, y: number) {
     g.fillStyle = "#8b4513";

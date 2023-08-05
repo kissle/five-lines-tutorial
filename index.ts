@@ -27,9 +27,6 @@ class Air implements Tile {
   moveVertical(dy: number) {
     moveToTile(playerx, playery + dy);
   }
-
-
-  rest() {};
   update(x: number, y: number): void {};
 }
 class Flux implements Tile {
@@ -55,56 +52,31 @@ class Flux implements Tile {
   moveVertical(dy: number) {
     moveToTile(playerx, playery + dy);
   }
-  updateTile(x: number, y: number) {}
-  drop() {}
-  rest() {};
   update(x: number, y: number): void {};
 
 }
 class Unbreakable implements Tile {
   isAir(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isFallingBox(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
-  isEdible(): boolean { return false };
-  isPushable(): boolean { return false };
-  isStony(): boolean { return false };
-  isBoxy(): boolean { return false };
-  isFalling(): boolean { return false };
-  canFall(): boolean { return false };
   
   draw(g: CanvasRenderingContext2D, x: number, y: number) {
     g.fillStyle = "#999999";
     g.fillRect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
   }
-  moveHorizontal(dx: number) {}
-  moveVertical(dy: number) {}
-  updateTile(x: number, y: number) {}
-  drop() {}
-  rest() {};
+  moveHorizontal(dx: number) {};
+  moveVertical(dy: number) {};
   update(x: number, y: number): void {};
 
 }
 class Player implements Tile {  
   isAir(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isFallingBox(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
-  isEdible(): boolean { return false };
-  isPushable(): boolean { return false };
-  isStony(): boolean { return false };
-  isBoxy(): boolean { return false };
-  isFalling(): boolean { return false };
-  canFall(): boolean { return false };
 
   draw(g: CanvasRenderingContext2D, x: number, y: number) {}
-  moveHorizontal(dx: number) { }
-  moveVertical(dy: number) {}
-  updateTile(x: number, y: number) {}
-  drop() {}
-  rest() {};
+  moveHorizontal(dx: number) {};
+  moveVertical(dy: number) {};
   update(x: number, y: number): void {};
 }
 

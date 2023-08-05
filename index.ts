@@ -6,38 +6,19 @@ const SLEEP = 1000 / FPS;
 
 interface Tile {
   isAir(): boolean;
-  isFallingStone(): boolean;
-  isFallingBox(): boolean;
   isLock1(): boolean;
   isLock2(): boolean;
-  isEdible(): boolean;
-  isPushable(): boolean;
-  isStony(): boolean;
-  isBoxy(): boolean;
-  isFalling(): boolean;
-  canFall(): boolean;
-  
+
   draw(g: CanvasRenderingContext2D, x: number, y: number): void
   moveHorizontal(dx: number): void
   moveVertical(dy: number): void
-  updateTile(x: number, y: number): void
-  drop(): void;
-  rest(): void;
   update(x: number, y: number): void;
 }
 
 class Air implements Tile {
   isAir(): boolean { return true };
-  isFallingStone(): boolean { return false };
-  isFallingBox(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
-  isEdible(): boolean { return true };
-  isPushable(): boolean { return false };
-  isStony(): boolean { return false };
-  isBoxy(): boolean { return false };
-  isFalling(): boolean { return false };
-  canFall(): boolean { return false };
 
   draw(g: CanvasRenderingContext2D, x: number, y: number) { }
   moveHorizontal(dx: number) {
@@ -46,8 +27,8 @@ class Air implements Tile {
   moveVertical(dy: number) {
     moveToTile(playerx, playery + dy);
   }
-  updateTile(x: number, y: number) {};
-  drop() {};
+
+
   rest() {};
   update(x: number, y: number): void {};
 }
@@ -246,16 +227,8 @@ class Box implements Tile {
 
 class Key1 implements Tile {
   isAir(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isFallingBox(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
-  isEdible(): boolean { return false };
-  isPushable(): boolean { return false };
-  isStony(): boolean { return false };
-  isBoxy(): boolean { return false };
-  isFalling(): boolean { return false };
-  canFall(): boolean { return false };
 
   draw(g: CanvasRenderingContext2D, x: number, y: number) {
     g.fillStyle = "#ffcc00";
@@ -269,24 +242,13 @@ class Key1 implements Tile {
     removeLock1();
     moveToTile(playerx, playery + dy);
   }
-  updateTile(x: number, y: number) {}
-  drop() {}
-  rest() {};
   update(x: number, y: number): void {};
 
 }
 class Key2 implements Tile {
   isAir(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isFallingBox(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
-  isEdible(): boolean { return false };
-  isPushable(): boolean { return false };
-  isStony(): boolean { return false };
-  isBoxy(): boolean { return false };
-  isFalling(): boolean { return false };
-  canFall(): boolean { return false };
   
   draw(g: CanvasRenderingContext2D, x: number, y: number) {
     g.fillStyle = "#00ccff";
@@ -300,48 +262,26 @@ class Key2 implements Tile {
     removeLock2();
     moveToTile(playerx, playery + dy);
   }
-  updateTile(x: number, y: number) {}
-  drop() {}
-  rest() {};
   update(x: number, y: number): void {};
 
 }
 class Lock1 implements Tile {
   isAir(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isFallingBox(): boolean { return false };
   isLock1(): boolean { return true };
   isLock2(): boolean { return false };
-  isEdible(): boolean { return false };
-  isPushable(): boolean { return false };
-  isStony(): boolean { return false };
-  isBoxy(): boolean { return false };
-  isFalling(): boolean { return false };
-  canFall(): boolean { return false };
 
   draw(g: CanvasRenderingContext2D, x: number, y: number) {
     g.fillStyle = "#ffcc00";
     g.fillRect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
   }
-  moveHorizontal(dx: number) { }
+  moveHorizontal(dx: number) {}
   moveVertical(dy: number) {}
-  updateTile(x: number, y: number) {}
-  drop() {}
-  rest() {};
   update(x: number, y: number): void {};
 }
 class Lock2 implements Tile {
   isAir(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isFallingBox(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return true };
-  isEdible(): boolean { return false };
-  isPushable(): boolean { return false };
-  isStony(): boolean { return false };
-  isBoxy(): boolean { return false };
-  isFalling(): boolean { return false };
-  canFall(): boolean { return false };
   
   draw(g: CanvasRenderingContext2D, x: number, y: number) {
     g.fillStyle = "#00ccff";
@@ -349,9 +289,6 @@ class Lock2 implements Tile {
   }
   moveHorizontal(dx: number) {}
   moveVertical(dy: number) {}
-  updateTile(x: number, y: number) {}
-  drop() {}
-  rest() {};
   update(x: number, y: number): void {};
 
 }

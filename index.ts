@@ -209,31 +209,28 @@ class Stone implements Tile {
 }
 
 class Box implements Tile {
-
-  constructor(private falling: FallingState) {}
+  private fallStrategy: FallStrategy
+  constructor(falling: FallingState
+    ) {
+      this.fallStrategy = new FallStrategy(falling)
+  }
 
   isAir(): boolean { return false };
-  isFallingBox(): boolean { return this.falling.isFalling() };
+  isFallingBox(): boolean { return this.fallStrategy.getFalling().isFalling() };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
-  isFalling(): boolean { return this.falling.isFalling() };
+  isFalling(): boolean { return this.fallStrategy.getFalling().isFalling() };
   
   draw(g: CanvasRenderingContext2D, x: number, y: number) {
     g.fillStyle = "#8b4513";
     g.fillRect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
   }
   moveHorizontal(dx: number) {
-    this.falling.moveHorizontal(this, dx)
+    this.fallStrategy.getFalling().moveHorizontal(this, dx)
   }
   moveVertical(dy: number) {}
   update(x: number, y: number): void {
-    if (map[y+1][x].isAir()) {
-      this.falling = new Falling();
-      map[y+1][x] = this
-      map[y][x] = new Air();
-    } else if (this.isFalling()) {
-      this.falling = new Resting();
-    } 
+    this.fallStrategy.update(this, x, y)
   };
 }
 

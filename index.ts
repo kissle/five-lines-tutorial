@@ -104,10 +104,6 @@ class Player implements Tile {
 
 }
 
-enum RawFallingState{
-  FALLING, RESTING
-}
-
 interface FallingState {
   isFalling(): boolean;
 

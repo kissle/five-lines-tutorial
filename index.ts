@@ -15,20 +15,10 @@ interface Tile {
   moveHorizontal(dx: number): void
   moveVertical(dy: number): void
   updateTile(x: number, y: number): void
-
 }
 
 class Air implements Tile {
   isAir(): boolean { return true };
-  isFlux(): boolean { return false };
-  isUnbreakable(): boolean { return false };
-  isPlayer(): boolean { return false };
-  isStone(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isBox(): boolean { return false };
-  isFallingBox(): boolean { return false };
-  isKey1(): boolean { return false };
-  isKey2(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
   isEdible(): boolean { return true };
@@ -46,15 +36,6 @@ class Air implements Tile {
 }
 class Flux implements Tile {
   isAir(): boolean { return false };
-  isFlux(): boolean { return true };
-  isUnbreakable(): boolean { return false };
-  isPlayer(): boolean { return false };
-  isStone(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isBox(): boolean { return false };
-  isFallingBox(): boolean { return false };
-  isKey1(): boolean { return false };
-  isKey2(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
   isEdible(): boolean { return true };
@@ -75,15 +56,6 @@ class Flux implements Tile {
 }
 class Unbreakable implements Tile {
   isAir(): boolean { return false };
-  isFlux(): boolean { return false };
-  isUnbreakable(): boolean { return true };
-  isPlayer(): boolean { return false };
-  isStone(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isBox(): boolean { return false };
-  isFallingBox(): boolean { return false };
-  isKey1(): boolean { return false };
-  isKey2(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
   isEdible(): boolean { return false };
@@ -100,15 +72,6 @@ class Unbreakable implements Tile {
 }
 class Player implements Tile {  
   isAir(): boolean { return false };
-  isFlux(): boolean { return false };
-  isUnbreakable(): boolean { return false };
-  isPlayer(): boolean { return true };
-  isStone(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isBox(): boolean { return false };
-  isFallingBox(): boolean { return false };
-  isKey1(): boolean { return false };
-  isKey2(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
   isEdible(): boolean { return false };
@@ -122,15 +85,6 @@ class Player implements Tile {
 }
 class Stone implements Tile {
   isAir(): boolean { return false };
-  isFlux(): boolean { return false };
-  isUnbreakable(): boolean { return false };
-  isPlayer(): boolean { return false };
-  isStone(): boolean { return true };
-  isFallingStone(): boolean { return false };
-  isBox(): boolean { return false };
-  isFallingBox(): boolean { return false };
-  isKey1(): boolean { return false };
-  isKey2(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
   isEdible(): boolean { return false };
@@ -159,15 +113,6 @@ class Stone implements Tile {
 }
 class FallingStone implements Tile {
   isAir(): boolean { return false };
-  isFlux(): boolean { return false };
-  isUnbreakable(): boolean { return false };
-  isPlayer(): boolean { return false };
-  isStone(): boolean { return false };
-  isFallingStone(): boolean { return true };
-  isBox(): boolean { return false };
-  isFallingBox(): boolean { return false };
-  isKey1(): boolean { return false };
-  isKey2(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
   isEdible(): boolean { return false };
@@ -189,15 +134,6 @@ class FallingStone implements Tile {
 }
 class Box implements Tile {
   isAir(): boolean { return false };
-  isFlux(): boolean { return false };
-  isUnbreakable(): boolean { return false };
-  isPlayer(): boolean { return false };
-  isStone(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isBox(): boolean { return true };
-  isFallingBox(): boolean { return false };
-  isKey1(): boolean { return false };
-  isKey2(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
   isEdible(): boolean { return false };
@@ -224,15 +160,6 @@ class Box implements Tile {
 }
 class FallingBox implements Tile {
   isAir(): boolean { return false };
-  isFlux(): boolean { return false };
-  isUnbreakable(): boolean { return false };
-  isPlayer(): boolean { return false };
-  isStone(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isBox(): boolean { return false };
-  isFallingBox(): boolean { return true };
-  isKey1(): boolean { return false };
-  isKey2(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
   isEdible(): boolean { return false };
@@ -254,15 +181,6 @@ class FallingBox implements Tile {
 }
 class Key1 implements Tile {
   isAir(): boolean { return false };
-  isFlux(): boolean { return false };
-  isUnbreakable(): boolean { return false };
-  isPlayer(): boolean { return false };
-  isStone(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isBox(): boolean { return false };
-  isFallingBox(): boolean { return false };
-  isKey1(): boolean { return true };
-  isKey2(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
   isEdible(): boolean { return false };
@@ -285,15 +203,6 @@ class Key1 implements Tile {
 }
 class Key2 implements Tile {
   isAir(): boolean { return false };
-  isFlux(): boolean { return false };
-  isUnbreakable(): boolean { return false };
-  isPlayer(): boolean { return false };
-  isStone(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isBox(): boolean { return false };
-  isFallingBox(): boolean { return false };
-  isKey1(): boolean { return false };
-  isKey2(): boolean { return true };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
   isEdible(): boolean { return false };
@@ -316,15 +225,6 @@ class Key2 implements Tile {
 }
 class Lock1 implements Tile {
   isAir(): boolean { return false };
-  isFlux(): boolean { return false };
-  isUnbreakable(): boolean { return false };
-  isPlayer(): boolean { return false };
-  isStone(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isBox(): boolean { return false };
-  isFallingBox(): boolean { return false };
-  isKey1(): boolean { return false };
-  isKey2(): boolean { return false };
   isLock1(): boolean { return true };
   isLock2(): boolean { return false };
   isEdible(): boolean { return false };
@@ -341,15 +241,6 @@ class Lock1 implements Tile {
 }
 class Lock2 implements Tile {
   isAir(): boolean { return false };
-  isFlux(): boolean { return false };
-  isUnbreakable(): boolean { return false };
-  isPlayer(): boolean { return false };
-  isStone(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isBox(): boolean { return false };
-  isFallingBox(): boolean { return false };
-  isKey1(): boolean { return false };
-  isKey2(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return true };
   isEdible(): boolean { return false };

@@ -31,16 +31,8 @@ class Air implements Tile {
 }
 class Flux implements Tile {
   isAir(): boolean { return false };
-  isFallingStone(): boolean { return false };
-  isFallingBox(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
-  isEdible(): boolean { return true };
-  isPushable(): boolean { return false };
-  isStony(): boolean { return false };
-  isBoxy(): boolean { return false };
-  isFalling(): boolean { return false };
-  canFall(): boolean { return false };
   
   draw(g: CanvasRenderingContext2D, x: number, y: number) {
     g.fillStyle = "#ccffcc";
@@ -108,16 +100,9 @@ class Stone implements Tile {
 
   isAir(): boolean { return false };
   isFallingStone(): boolean { return this.falling.isFalling() };
-  isFallingBox(): boolean { return false };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
-  isEdible(): boolean { return false };
-  isPushable(): boolean { return true };
-  isStony(): boolean { return true };
-  isBoxy(): boolean { return false };
   isFalling(): boolean { return this.falling.isFalling() };
-  canFall(): boolean { return true };
-  
 
   draw(g: CanvasRenderingContext2D, x: number, y: number) {
     g.fillStyle = "#0000cc";
@@ -155,16 +140,10 @@ class Box implements Tile {
   constructor(private falling: FallingState) {}
 
   isAir(): boolean { return false };
-  isFallingStone(): boolean { return false };
   isFallingBox(): boolean { return this.falling.isFalling() };
   isLock1(): boolean { return false };
   isLock2(): boolean { return false };
-  isEdible(): boolean { return false };
-  isPushable(): boolean { return false };
-  isStony(): boolean { return false };
-  isBoxy(): boolean { return true };
   isFalling(): boolean { return this.falling.isFalling() };
-  canFall(): boolean { return true };
   
   draw(g: CanvasRenderingContext2D, x: number, y: number) {
     g.fillStyle = "#8b4513";
